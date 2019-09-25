@@ -17,6 +17,13 @@ export class ProductGetComponent implements OnInit {
       .getProducts()
       .subscribe((data: Product[]) => {
         this.products = data;
+      });
+  }
+
+  deleteProduct(id) {
+    this.ps.deleteProduct(id)
+    .subscribe((data: Product[]) => {
+      this.products.splice(id, 1);
     });
   }
 
